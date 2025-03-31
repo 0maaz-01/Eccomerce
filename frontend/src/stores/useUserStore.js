@@ -73,10 +73,10 @@ export const useUserStore = create((set, get) => ({
 			console.log(error.message);
 			set({ checkingAuth: false, user: null });
 		}
-	},
+	}, 
 
 
-	/*refreshToken: async () => {
+/*	refreshToken: async () => {
 		// Prevent multiple simultaneous refresh attempts
 		if (get().checkingAuth) return;
 
@@ -91,9 +91,9 @@ export const useUserStore = create((set, get) => ({
 			set({ user: null, checkingAuth: false });
 			throw error;
 		}
-	},*/
+	},
 }));
-
+*/
 
 
 // TODO: Implement the axios interceptors for refreshing access token
