@@ -7,26 +7,30 @@ export const useCartStore = create((set, get) => ({
 	coupon: null,
 	total: 0,
 	subtotal: 0,
-	// isCouponApplied: false,
+	isCouponApplied: false,
 
 	getMyCoupon: async () => {
 		try {
 			const response = await axios.get("/coupons");
 			set({ coupon: response.data });
-		} catch (error) {
+		} 
+		catch (error) {
 			console.error("Error fetching coupon:", error);
 		}
 	},
+	
 	applyCoupon: async (code) => {
 		try {
 			const response = await axios.post("/coupons/validate", { code });
 			set({ coupon: response.data, isCouponApplied: true });
 			get().calculateTotals();
 			toast.success("Coupon applied successfully");
-		} catch (error) {
+		} 
+		catch (error) {
 			toast.error(error.response?.data?.message || "Failed to apply coupon");
 		}
 	},
+
 	removeCoupon: () => {
 		set({ coupon: null, isCouponApplied: false });
 		get().calculateTotals();
@@ -82,18 +86,23 @@ export const useCartStore = create((set, get) => ({
 	},
 
 
-	/*updateQuantity: async (productId, quantity) => {
+
+	updateQuantity: async (productId, quantity) => {
+		// if the quantity of the product reaches zero then remove this product from the cart.
 		if (quantity === 0) {
 			get().removeFromCart(productId);
 			return;
 		}
 
+		// save the quantity to the backend.
 		await axios.put(`/cart/${productId}`, { quantity });
+		// set the quantity of the product in the cart also.
 		set((prevState) => ({
 			cart: prevState.cart.map((item) => (item._id === productId ? { ...item, quantity } : item)),
 		}));
+
 		get().calculateTotals();
-	},*/
+	},
 
 	
 	calculateTotals: () => {
