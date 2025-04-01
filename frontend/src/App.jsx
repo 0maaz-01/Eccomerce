@@ -3,22 +3,33 @@ import { Routes, Route} from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
+import AdminPage from './pages/AdminPage';
+import CategoryPage from './pages/CategoryPage';
+import CartPage from './pages/CartPage';
+
 import Navbar from './components/Navbar';
 import { Toaster } from 'react-hot-toast';
 import { useUserStore } from './stores/useUserStore';
 import { Navigate } from 'react-router-dom';
 import LoadingSpinner from './components/LoadingSpinner';
+import { useCartStore } from './stores/useCartStore';
 
 
 const App = () => {
 
 	const { user, checkAuth, checkingAuth } = useUserStore();
+	const { getCartItems } = useCartStore();
 
-	useEffect(() => {
-		checkAuth();
-	}, [checkAuth])
+//	useEffect(() => {
+//		checkAuth();
+//	}, [checkAuth])
 
-	if ( checkingAuth ) return <LoadingSpinner/>
+//	if ( checkingAuth ) return <LoadingSpinner/>
+
+// this will fetch the no. of items in the cart for the current user.
+useEffect(() => {
+	if (user) getCartItems();
+}, [getCartItems, user])
 
   return (
 	<div className='min-h-screen bg-gray-900 text-white relative'>
@@ -38,6 +49,20 @@ const App = () => {
 				<Route path = "/signup" element = { <SignUpPage/> }/>
 				{/*If the user has logged in then send him to the home page otherwise keep him on the Login Page.*/}
 				<Route path='/login' element={!user ? <LoginPage /> : <Navigate to = '/'/>} />
+				<Route 
+					path='/secret-dashboard' 
+					element={user?.role === "admin" ? <AdminPage /> : <Navigate to = '/login'/>} 
+				/>
+
+				<Route 
+					path='/category/:category' 
+					element = { <CategoryPage/> }
+				/>
+
+				<Route
+					  path = "/cart" element = {user ? <CartPage/> : <Navigate to = '/login'/>}
+				/>
+
 			</Routes>
 		 </div>
 		 {/*To display the errors on the screen.*/}
