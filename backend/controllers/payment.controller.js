@@ -28,7 +28,9 @@ export const createCheckoutSession = async (req, res) => {
                         images : [product.image],       // to send the images in the format of array.
                     },
                     unit_amount: amount
-                }
+                },
+                // take the quantity of the product or keep it as 1
+                quantity: product.quantity || 1,
             }
         });
 
@@ -104,6 +106,8 @@ async function createStripeCoupon(discountPercentage) {
 
 
 async function createNewCoupon(userId){
+    // d
+    await Coupon.findOneAndDelete({ userId : userId })
     const newCoupon = new Coupon({
         // generating code for a coupon.
         code : "GIFT" + Math.random().toString(36).substring(2, 8).toUpperCase(),
