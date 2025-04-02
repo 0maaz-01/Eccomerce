@@ -42,15 +42,43 @@ export const getFeaturedProducts = async (req, res) => {
 
         // return the products.
         res.json(featuredProducts);
-    }   
-
-
+    }
 
     catch(error){
         console.log("Error in getFeaturedProducts controller", error.message);
         res.status(500).json({ message: "Server Error", error : error.message });
     }
 };
+
+
+
+
+
+/*export const createProduct = async (req, res) => {
+    try {
+        const { name, description, price, image, category } = req.body;
+
+        let cloudinaryResponse = null;
+
+        if (image) {
+            cloudinaryResponse = await cloudinary.uploader.upload(image, { folder: "products" });
+        }
+
+        const product = await Product.create({
+            name,
+            description,
+            price,
+            image: cloudinaryResponse?.secure_url ? cloudinaryResponse.secure_url : "",
+            category,
+        });
+
+        res.status(201).json(product);
+    } catch (error) {
+        console.log("Error in createProduct controller", error.message);
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+};
+*/
 
 
 
@@ -129,7 +157,7 @@ export const getRecommendedProducts = async (req, res) => {
     try{
         const products = await Product.aggregate([
             {   // it should display 3 products 
-                $sample : {size : 3}
+                $sample : {size : 6}
             },
             {   // what properties should be displayed with the product.
                 $project:{
@@ -161,7 +189,11 @@ export const getProductsByCategory = async (req, res) => {
     try{
         // get all the products of the category and show them on the screen.
         const products = await Product.find( {category} );
-        res.json(products);
+        // the response that will be sent in different scenarios.
+        // res.json( products ) => ["apple", "banana", "cherry"]
+        // res.json( {products} => {"products": ["apple", "banana", "cherry" }
+        // we will return object from where this function is called so that we can access different categories
+        res.json( {products} );
     }
 
     catch(error){
