@@ -76,7 +76,7 @@ export const useUserStore = create((set, get) => ({
 	}, 
 
 
-/*	refreshToken: async () => {
+	refreshToken: async () => {
 		// Prevent multiple simultaneous refresh attempts
 		if (get().checkingAuth) return;
 
@@ -93,18 +93,20 @@ export const useUserStore = create((set, get) => ({
 		}
 	},
 }));
-*/
+
 
 
 // TODO: Implement the axios interceptors for refreshing access token
 
 // Axios interceptor for token refresh
-/*let refreshPromise = null;
+let refreshPromise = null;
 
 axios.interceptors.response.use(
 	(response) => response,
+	// if creating an access token fails
 	async (error) => {
 		const originalRequest = error.config;
+		// if creating a product fails and the request is not submitted again then try again.
 		if (error.response?.status === 401 && !originalRequest._retry) {
 			originalRequest._retry = true;
 
@@ -133,4 +135,3 @@ axios.interceptors.response.use(
 		return Promise.reject(error);
 	}
 );
-*/
