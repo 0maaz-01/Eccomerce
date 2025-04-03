@@ -9,6 +9,7 @@ export const useCartStore = create((set, get) => ({
 	subtotal: 0,
 	isCouponApplied: false,
 
+	// check if we have any coupons in the database.
 	getMyCoupon: async () => {
 		try {
 			const response = await axios.get("/coupons");
@@ -23,6 +24,7 @@ export const useCartStore = create((set, get) => ({
 		try {
 			const response = await axios.post("/coupons/validate", { code });
 			set({ coupon: response.data, isCouponApplied: true });
+			// calculate the price after applying coupons.
 			get().calculateTotals();
 			toast.success("Coupon applied successfully");
 		} 
@@ -39,9 +41,12 @@ export const useCartStore = create((set, get) => ({
 
 	getCartItems: async () => {
 		try {
+			if (cart.length === 0) return;
 			const res = await axios.get("/cart");
-			set({ cart: res.data });
-			get().calculateTotals();
+			if (res.data){
+				set({ cart: res.data });
+				get().calculateTotals();
+			}
 		}
 
 		catch (error) {
@@ -51,9 +56,9 @@ export const useCartStore = create((set, get) => ({
 	},
 
 
-	/*clearCart: async () => {
+	clearCart: async () => {
 		set({ cart: [], coupon: null, total: 0, subtotal: 0 });
-	},*/
+	},
 
 	addToCart: async (product) => {
 		try {
