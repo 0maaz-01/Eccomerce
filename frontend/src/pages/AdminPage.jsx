@@ -20,9 +20,10 @@ const AdminPage = () => {
 	const { fetchAllProducts } = useProductStore();
 
 
-	/*useEffect(() => {
+	// when the admin page is called start loading the products in the admin dashboard. If we start loading the products page when the products tab is clicked upon then it will take some time to load.
+	useEffect(() => {
 		fetchAllProducts();
-	}, [fetchAllProducts]);*/
+	}, [fetchAllProducts]);
 
 
 	return (
