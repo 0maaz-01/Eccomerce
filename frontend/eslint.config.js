@@ -28,6 +28,8 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
+      // to remove the error that appears in the category item file while passing the category props.
+      "react/prop-types" : "off"
     },
   },
 ]
