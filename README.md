@@ -17,6 +17,18 @@ A e-commerce web application built with React 19, Express.js, MongoDB, and Strip
 - 🔥 Real-time Toast Notifications
 
 ---
+## How it Looks :
+<img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/A.png" width="400" height="240"> <img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/B.png" width="400" height="240">
+
+<img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/D.png" width="400" height="240"> <img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/C.png" width="400" height="240">
+
+<img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/F.png" width="400" height="240"> <img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/G.png" width="400" height="240"> 
+
+<img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/E.png" width="400" height="240"> <img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/I.png" width="400" height="240">
+
+<img src="https://github.com/0maaz-01/Eccomerce/blob/main/Images/H.png" width="400" height="240">
+
+---
 
 ## 🧩 UI & UX Enhancements
 
