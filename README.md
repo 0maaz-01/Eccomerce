@@ -4,6 +4,29 @@ A high-performance, full-featured e-commerce web application built with modern t
 
 ---
 
+## 🛠️ Key Features
+
+- 🛍️ Product Catalog & Search
+- 👥 User Registration & Authentication (JWT)
+- 🛒 Shopping Cart with Zustand
+- 💳 Stripe Payment Integration
+- 📦 Order History & Tracking
+- 🖼️ Image Uploads via Cloudinary
+- 📊 Admin Dashboard with Recharts
+- 🎉 Celebratory Confetti Effects on Checkout
+- 🔥 Real-time Toast Notifications
+
+---
+
+## 🧩 UI & UX Enhancements
+
+- **Framer Motion** for rich animations  
+- **Lucide React** icons for a clean, consistent interface  
+- **React Hot Toast** for dynamic feedback  
+- **Recharts** to visualize sales, traffic, and customer data
+
+---
+
 ## 🚀 Tech Stack
 
 **Frontend**  
@@ -30,109 +53,43 @@ A high-performance, full-featured e-commerce web application built with modern t
 
 ---
 
-## 📦 Installation
-
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/your-username/ecommerce-platform.git
-   cd ecommerce-platform
-   ```
-
-2. **Install backend dependencies**
-   ```bash
-   cd server
-   npm install
-   ```
-
-3. **Install frontend dependencies**
-   ```bash
-   cd ../client
-   npm install
-   ```
-
----
-
 ## 🔐 Environment Variables
 
 In the `server/` directory, create a `.env` file with the following:
 
 ```env
+PORT = 5000
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
 CLOUDINARY_CLOUD_NAME=your_cloud_name
 CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 STRIPE_SECRET_KEY=your_stripe_secret_key
-REDIS_URL=your_redis_connection_url
+UPSTASH_REDIS_URL=your_redis_connection_url
+
+ACCESS_TOKEN_SECRET = your_access_token_secret 
+REFRESH_TOKEN_SECRET = your_refresh_token_secret
 ```
-
----
-
-## 🛠️ Key Features
-
-- 🛍️ Product Catalog & Search
-- 👥 User Registration & Authentication (JWT)
-- 🛒 Shopping Cart with Zustand
-- 💳 Stripe Payment Integration
-- 📦 Order History & Tracking
-- 🖼️ Image Uploads via Cloudinary
-- 📊 Admin Dashboard with Recharts
-- 🎉 Celebratory Confetti Effects on Checkout
-- 🔥 Real-time Toast Notifications
-
----
-
-## 🧩 UI & UX Enhancements
-
-- **Framer Motion** for rich animations  
-- **Lucide React** icons for a clean, consistent interface  
-- **React Hot Toast** for dynamic feedback  
-- **Recharts** to visualize sales, traffic, and customer data
-
----
 
 ## 📂 Folder Structure
 
 ```
 ecommerce-platform/
-├── client/            # React frontend
+├── frontend/            # React frontend
 │   ├── src/
 │   └── public/
 │
-├── server/            # Express backend
+├── backend/            # Express backend
 │   ├── controllers/
 │   ├── models/
 │   ├── routes/
 │   ├── middleware/
-│   └── utils/
+│   └── lib/
 │
-└── README.md
+└── .env
 ```
 
----
 
-## 🧪 Development
-
-Start the **backend**:
-```bash
-cd server
-npm run dev
-```
-
-Start the **frontend**:
-```bash
-cd client
-npm run dev
-```
-
----
-
-## 🤝 Contributing
-
-Pull requests, suggestions, and issues are welcome!  
-Open an issue or submit a PR in the [GitHub repo](https://github.com/your-username/ecommerce-platform/issues).
-
----
 
 
 ## License 📜
