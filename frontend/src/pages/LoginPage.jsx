@@ -26,7 +26,7 @@ const LoginPage = () => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8 }}
 			>
-				<h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Create your account</h2>
+				<h2 className='mt-6 text-center text-3xl font-extrabold text-black'>Log into your account</h2>
 			</motion.div>
 
 
@@ -36,15 +36,15 @@ const LoginPage = () => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.8, delay: 0.2 }}
 			>
-				<div className='bg-gray-800 py-8 px-4 shadow sm:rounded-lg sm:px-10'>
+				<div className='bg-[#8e4c41] py-8 px-4 shadow sm:rounded-lg sm:px-10'>
 					<form onSubmit={handleSubmit} className='space-y-6'>
 						<div>
-							<label htmlFor='email' className='block text-sm font-medium text-gray-300'>
+							<label htmlFor='email' className='block text-sm font-medium text-white'>
 								Email address
 							</label>
 							<div className='mt-1 relative rounded-md shadow-sm'>
 								<div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-									<Mail className='h-5 w-5 text-gray-400' aria-hidden='true' />
+									<Mail className='h-5 w-5 text-black' aria-hidden='true' />
 								</div>
 								<input
 									id='email'
@@ -52,22 +52,20 @@ const LoginPage = () => {
 									required
 									value={email}
 									onChange={(e) => setEmail(e.target.value)}
-									className=' block w-full px-3 py-2 pl-10 bg-gray-700 border border-gray-600 
-									rounded-md shadow-sm
-									 placeholder-gray-400 focus:outline-none focus:ring-emerald-500 
-									 focus:border-emerald-500 sm:text-sm'
+									className="block w-full px-3 py-2 pl-10 focus:black bg-white border-2 text-black  border-black rounded-md shadow-sm
+											  placeholder-black focus:outline-none focus:border-black sm:text-sm focus:ring-2 focus:ring-black  "
 									placeholder='you@example.com'
 								/>
 							</div>
 						</div>
 
 						<div>
-							<label htmlFor='password' className='block text-sm font-medium text-gray-300'>
+							<label htmlFor='password' className='block text-sm font-medium text-white'>
 								Password
 							</label>
 							<div className='mt-1 relative rounded-md shadow-sm'>
 								<div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
-									<Lock className='h-5 w-5 text-gray-400' aria-hidden='true' />
+									<Lock className='h-5 w-5 text-black' aria-hidden='true' />
 								</div>
 								<input
 									id='password'
@@ -75,19 +73,19 @@ const LoginPage = () => {
 									required
 									value={password}
 									onChange={(e) => setPassword(e.target.value)}
-									className=' block w-full px-3 py-2 pl-10 bg-gray-700 border border-gray-600 
-									rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-emerald-500 focus:border-emerald-500 sm:text-sm'
-									placeholder='••••••••'
+									className="block w-full px-3 py-2 pl-10 focus:black bg-white border-2 text-black  border-black rounded-md shadow-sm
+											  placeholder-black focus:outline-none focus:border-black sm:text-sm focus:ring-2 focus:ring-black "
+									placeholder='Enter your password'
 								/>
 							</div>
 						</div>
 
 						<button
 							type='submit'
-							className='w-full flex justify-center py-2 px-4 border border-transparent 
-							rounded-md shadow-sm text-sm font-medium text-white bg-emerald-600
-							 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-offset-2
-							  focus:ring-emerald-500 transition duration-150 ease-in-out disabled:opacity-50'
+							className="w-full flex justify-center py-2 px-4 border border-transparent 
+								rounded-md shadow-sm text-sm font-medium text-black bg-[#FFE4C4]
+							 hover:bg-[#f89d2e] focus:outline-none focus:ring-2 focus:ring-offset-2
+							  focus:ring-black transition duration-150 ease-in-out disabled:opacity-50"
 							disabled={loading}
 						>
 							{loading ? (
@@ -104,9 +102,9 @@ const LoginPage = () => {
 						</button>
 					</form>
 
-					<p className='mt-8 text-center text-sm text-gray-400'>
+					<p className='mt-8 text-center text-sm text-white '>
 						Not a member?{" "}
-						<Link to='/signup' className='font-medium text-emerald-400 hover:text-emerald-300'>
+						<Link to='/signup' className='font-medium text-[#FFE4C4]  hover:text-[#fcaa46]'>
 							Sign up now <ArrowRight className='inline h-4 w-4' />
 						</Link>
 					</p>
