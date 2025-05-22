@@ -1,6 +1,6 @@
 # 🛒 Full-Stack E-commerce Platform
 
-A high-performance, full-featured e-commerce web application built with modern technologies like React 19, Express.js, MongoDB, and Stripe. This platform supports product listings, user authentication, shopping cart management, order processing, and secure online payments.
+A e-commerce web application built with React 19, Express.js, MongoDB, and Stripe. This platform supports product listings, user authentication, shopping cart management, order processing, and secure online payments.
 
 ---
 
